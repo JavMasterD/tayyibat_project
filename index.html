@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>نظام الطيبات - د. ضياء العوضي</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">🌿</div>
+    <h1>نظام الطيبات</h1>
+    <p class="subtitle">للدكتور ضياء العوضي</p>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button id="tb1" class="tab active" onclick="tab(1)">🔍 تحليل الطعام</button>
+    <button id="tb2" class="tab" onclick="tab(2)">📊 متابعة الصحة</button>
+  </div>
+
+  <!-- ═══ PANEL 1: FOOD ═══ -->
+  <div id="pn1">
+    <div class="search-wrap">
+      <input id="fi" type="text" class="search-input"
+        placeholder="ابحث عن طعام... مثال: أرز، دجاج، فول، عسل"
+        oninput="srch(this.value)" onkeydown="kd(event)" autocomplete="off"/>
+      <div id="sugg" class="suggestions"></div>
+    </div>
+
+    <div id="fload" class="loading">⏳ يحلل الذكاء الاصطناعي...</div>
+    <div id="fres" class="result-area"></div>
+
+    <div class="stats-grid">
+      <div class="stat-card allowed">
+        <div id="acnt" class="stat-num">—</div>
+        <div class="stat-label">طعام مسموح</div>
+      </div>
+      <div class="stat-card forbidden">
+        <div id="fcnt" class="stat-num">—</div>
+        <div class="stat-label">طعام ممنوع</div>
+      </div>
+    </div>
+
+    <div class="categories-section">
+      <p class="section-label">تصفح حسب الفئة:</p>
+      <div id="cats" class="categories"></div>
+    </div>
+  </div>
+
+  <!-- ═══ PANEL 2: HEALTH ═══ -->
+  <div id="pn2" style="display:none;">
+    <div class="health-entry">
+      <p class="section-title">➕ إضافة قياس جديد</p>
+      <div class="entry-grid">
+        <div>
+          <label class="field-label">ضغط الدم</label>
+          <input id="bpIn" type="text" placeholder="120/80" class="field-input ltr"/>
+        </div>
+        <div>
+          <label class="field-label">سكر الدم (mg/dL)</label>
+          <input id="sgIn" type="number" placeholder="100" class="field-input ltr"/>
+        </div>
+      </div>
+      <div class="entry-row">
+        <input id="noteIn" type="text" placeholder="ملاحظة: بعد الأكل، صباحاً..." class="field-input"/>
+        <button onclick="addR()" class="save-btn">حفظ ✔</button>
+      </div>
+    </div>
+
+    <div id="hSum" class="health-summary"></div>
+    <div id="hChart"></div>
+    <div id="hList"></div>
+  </div>
+
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
